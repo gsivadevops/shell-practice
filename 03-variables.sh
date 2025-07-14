@@ -1,11 +1,9 @@
 #!/bin/bash
 
-NUMBER1=100
-NUMBER2=200
+PERSON1=Trump
+PERSON2=Musk
 
-TIMESTAMP=$(date) #date is a command, storing the output in TIMESTAMP
-
-echo "Script executed at : $TIMESTAMP"
-#SUM = $(($NUMBER1+$NUMBER2))
-
-#echo "Sum of $NUMBER1 and $NUMBER2 is: $SUM
+echo "$PERSON1: Hey $PERSON2, how are you?"
+echo "$PERSON2: Hey $PERSON1, I am fine, How are you doing"
+echo "$PERSON1: I am doing good, Whats up?"
+echo "$PERSON2: Nothing"
