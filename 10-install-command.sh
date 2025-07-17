@@ -2,13 +2,12 @@
 
 USERID=$(id -u)
 
-echo "id of the user: $USERID"
-if ( $USERID -ne 0 )
-then 
-   echo "please run this script with root access"
-   exit 1
+if [ $USERID -ne 0 ]
+then
+    echo "ERROR:: Please run this script with root access"
+    exit 1 #give other than 0 upto 127
 else
-   echo "you are running with root access"
+    echo "You are running with root access"
 fi
 
 dnf list installed mysql
