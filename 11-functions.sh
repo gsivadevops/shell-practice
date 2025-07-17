@@ -13,7 +13,7 @@ fi
 
 #function taking the inputs as exit status and what command they tried to install
 VALIDATE(){
-  if ( $1 -eq 0 )
+  if [ $1 -eq 0 ]
     then
         echo "$2 installation is.....SUCCESS"
     else     
