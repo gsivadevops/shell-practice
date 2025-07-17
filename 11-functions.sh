@@ -4,9 +4,11 @@ USERID=$(id -u)
 
 if ( $USERID -ne 0 )
 then 
-   echo "please run this script with root access"
+   echo "ERROR::please run this script with root access"
+   exit 1
 else
    echo "you are running with root access"
+
 fi
 
 #function taking the inputs as exit status and what command they tried to install
