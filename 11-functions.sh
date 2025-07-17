@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 
-if ( $USERID -ne 0 )
+if [ $USERID -ne 0 ]
 then 
    echo "ERROR::please run this script with root access"
    exit 1
@@ -25,7 +25,7 @@ VALIDATE(){
 #mysql installation
 dnf list installed mysql
 echo "Is MySQL installed or not?: $?"
-if ( $? -ne 0 )
+if [ $? -ne 0 ]
 then
     echo "MySQL is not installed...installing it now"
      
