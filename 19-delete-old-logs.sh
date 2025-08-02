@@ -10,6 +10,11 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 SOURCE_DIR=/home/ec2-user/app-logs
 
+echo "logs folder: $LOGS_FOLDER"
+echo "script name: $SCRIPT_NAME"
+echo "log file: $LOG_FILE"
+
+
 mkdir -p $LOGS_FOLDER
 
 if [ $USERID -ne 0 ]
