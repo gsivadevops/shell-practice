@@ -13,6 +13,6 @@ do
     echo $line
 #done < 17-set-cmd.sh
 
-done < 19-delete-old-logs.sh #for this its reading this file line by line as out put
+#done < 19-delete-old-logs.sh #for this its reading this file line by line as out put
 
 done <<< "19-delete-old-logs.sh"
