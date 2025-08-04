@@ -49,7 +49,14 @@ do
     echo "Deleting file: $filepath" | tee -a $LOG_FILE
     rm -rf $filepath
 #done <<< $FILES_TO_DELETE
-done < $FILES_TO_DELETE
+done <<< "$FILES_TO_DELETE"
+
+#if file name contains spaces or new lines
+#find "$SOURCE_DIR" -name "*.log" -mmin +5 | while IFS= read -r filepath
+#do
+#    echo "Deleting file: $filepath" | tee -a "$LOG_FILE"
+ #   rm -rf "$filepath"
+#done
 
 VALIDATE $? "Deleting 14 days older log files"
 echo "Script executed successfully"
