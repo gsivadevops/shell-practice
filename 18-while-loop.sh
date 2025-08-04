@@ -13,4 +13,4 @@ do
     echo $line
 #done < 17-set-cmd.sh
 
-done < 19-delete-old-logs.sh
+done <<< 19-delete-old-logs.sh
