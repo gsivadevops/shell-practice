@@ -46,12 +46,12 @@ echo "FILES_TO_DELETE: $FILES_TO_DELETE"
 
 while IFS= read -r filepath
 do
-    echo "Deleting file: $filepath" | tee -a $LOG_FILE
-    rm -rf $filepath
+    echo "Deleting file: $filepath" | tee -a "$LOG_FILE"
+    rm -rf "$filepath"
 #done <<< $FILES_TO_DELETE
 done <<< "$FILES_TO_DELETE"
 
-#if file name contains spaces or new lines
+#if file name contains spaces or new lines, then below code will work
 #find "$SOURCE_DIR" -name "*.log" -mmin +5 | while IFS= read -r filepath
 #do
 #    echo "Deleting file: $filepath" | tee -a "$LOG_FILE"
