@@ -42,7 +42,7 @@ echo "Script started executing at $(date)" | tee -a $LOG_FILE
 #FILES_TO_DELETE=$(find $SOURCE_DIR -type f -name "*.log" -mtime +14)
 FILES_TO_DELETE=$(find "$SOURCE_DIR" -name "*.log" -mmin +5) #5mins old files
 
-echo "FILES_TO_DELETE: $FILES_TO_DELETE"
+#echo "FILES_TO_DELETE: $FILES_TO_DELETE"
 
 while IFS= read -r filepath
 do
