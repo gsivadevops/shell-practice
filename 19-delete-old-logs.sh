@@ -54,7 +54,7 @@ FILES_TO_DELETE=$(find "$SOURCE_DIR" -type f -name "*.log" -mmin +5)
 echo "FILES_TO_DELETE: $FILES_TO_DELETE"
 
 #if file name contains spaces or new lines also, then below code will work, and this code is memory efficient
-find "$SOURCE_DIR" -name "*.log" -mmin +5 | while IFS= read -r filepath
+find "$SOURCE_DIR" -type f -name "*.log" -mmin +5 | while IFS= read -r filepath # this is good way 
 do
    echo "Deleting file: $filepath" | tee -a "$LOG_FILE"
    rm -f "$filepath" #removes only files
