@@ -7,7 +7,7 @@ IP=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)
 
 while IFS= read line
 do
-    USAGE=$(echo $line | awk '{print $6F}' | cut -d "%" -f1)
+    USAGE=$(echo $line | awk '{print $6F}' | cut -d "%" -f1) 
     PARTITION=$(echo $line | awk '{print $7F}')
     if [ $USAGE -ge $DISK_THRESHOLD ]
     then
@@ -17,4 +17,4 @@ done <<< $DISK_USAGE
 
 #echo -e $MSG
 
-sh mail.sh "DevOps Team" "High Disk Usage" "$IP" "$MSG" "info@joindevops.com" "ALERT-High Disk Usage"
+sudo sh mail.sh "DevOps Team" "High Disk Usage" "$IP" "$MSG" "info@joindevops.com" "ALERT-High Disk Usage"
