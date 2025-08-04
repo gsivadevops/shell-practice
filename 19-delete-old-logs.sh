@@ -38,15 +38,18 @@ VALIDATE(){
 
 echo "Script started executing at $(date)" | tee -a $LOG_FILE
 
-FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -mtime +14)
+#FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -mtime +14) #14 days old files
 #FILES_TO_DELETE=$(find $SOURCE_DIR -type f -name "*.log" -mtime +14)
+FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -mmin +5) #5mins old files
+
 echo "FILES_TO_DELETE: $FILES_TO_DELETE"
 
 while IFS= read -r filepath
 do
     echo "Deleting file: $filepath" | tee -a $LOG_FILE
     rm -rf $filepath
-done <<< $FILES_TO_DELETE
+#done <<< $FILES_TO_DELETE
+done < $FILES_TO_DELETE
 
 VALIDATE $? "Deleting 14 days older log files"
 echo "Script executed successfully"
