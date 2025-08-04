@@ -50,10 +50,10 @@ echo "Script started executing at $(date)" | tee -a $LOG_FILE
 # #done <<< $FILES_TO_DELETE #with this files not deleting, so use below done
 # done <<< "$FILES_TO_DELETE"
 
-FILES_TO_DELETE=find "$SOURCE_DIR" -type f -name "*.log" -mmin +5
+FILES_TO_DELETE=$(find "$SOURCE_DIR" -type f -name "*.log" -mmin +5)
 echo "FILES_TO_DELETE: $FILES_TO_DELETE"
 
-#if file name contains spaces or new lines also, then below code will work
+#if file name contains spaces or new lines also, then below code will work, and this code is memory efficient
 find "$SOURCE_DIR" -name "*.log" -mmin +5 | while IFS= read -r filepath
 do
    echo "Deleting file: $filepath" | tee -a "$LOG_FILE"
