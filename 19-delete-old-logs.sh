@@ -46,4 +46,5 @@ do
     rm -rf $filepath
 done <<< $FILES_TO_DELETE
 
+VALIDATE $? "Deleting 14 days older log files"
 echo "Script executed successfully"
